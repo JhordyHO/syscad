@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+   
+}
+h1{
+    margin: 0;
+    color: #0066cc;
+}
+header{
+    color: white;
+    background: #003366;
+    height: auto;
+}
+footer{
+    margin-top: 50px;
+    color:#0066cc;
+}
+.color_amethyst{
+   background-color: #9b59b6 !important;
+   color: #fff;
+
+}
+.color_alizarin{
+    background-color: #e74c3c !important;
+   color: #fff;
+}
+.color_sunflower{
+    background-color: #f1c40f !important;
+   color: #fff;
+}
+.color_alspha{
+   background-color: #34495e !important;
+   color: #fff;
+}
+.color_river{
+   background-color: #3498db !important;
+   color: #fff;
+}
+.color_emerald{
+   background-color: #2ecc71 !important;
+   color: #fff;
+}
+
+.header{
+        color: #8e44ad;
+    font-weight: 300;
+}
+.xs{
+    width: 50px;
+    height: 20px;
+}
