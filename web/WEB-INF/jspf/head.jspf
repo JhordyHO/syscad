@@ -6,4 +6,3 @@
 <link href="fonts/icon.css" rel="stylesheet" type="text/css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="js/materialize.js" type="text/javascript"></script>
-<script src="js/alumno/alumno.js" type="text/javascript"></script>

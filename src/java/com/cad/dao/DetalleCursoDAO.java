@@ -23,7 +23,7 @@ public class DetalleCursoDAO implements Operaciones<DetalleCurso> {
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection cx;
-    private final String SQL_LISTAR = "";
+    private final String SQL_LISTAR = "select * from detalle_curso d , alumno a,curso c where d.idAlumno = a.idAlumno and  d.idCurso = c.idCurso";
     private final String SQL_GUARDAR = "";
     private final String SQL_UPDATE = "";
     private final String SQL_ELIMINAR = "";
@@ -97,6 +97,15 @@ public class DetalleCursoDAO implements Operaciones<DetalleCurso> {
            d.setNota1((float) rs.getDouble("nota1"));
            d.setNota2((float) rs.getDouble("nota2"));
            d.setPromedio((float) rs.getDouble("promedio"));
+           ///--------------------datos curso --------------
+           d.setId_curso(rs.getInt("idCurso"));
+           d.setNombre_curso(rs.getString("nombre_curso"));
+           //---------------------datos alumno-------------
+           d.setNombre(rs.getString("nombres"));
+           d.setApellido(rs.getString("apellidos"));
+           d.setCorreo(rs.getString("correo"));
+           d.setCiclo(rs.getString("ciclo"));
+           d.setTelefono(rs.getString("telefono"));
                lista.add(d);
             }
         } catch (Exception e) {

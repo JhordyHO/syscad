@@ -2,12 +2,12 @@ $(document).ready(function () {
     $(".dropdown-button").dropdown();//inicializamos el dropdown
     $('.modal-trigger').leanModal();
     //--------------modificar event -----------
-    $('#modificar').click(function (){
+    $('#modificar').click(function () {
         $('#form-edit').submit();
     });//-- end modificar event
-    
+
     //--------------crear event -----------------
-    $('#crear').click(function(){
+    $('#crear').click(function () {
         $('#form-registrar').submit();
     });//-end event crear
 
@@ -38,12 +38,16 @@ function edit_alum(id) { // el parametro "id" es lo que nos trae el id del usuar
 
 //---- creamos la funcion para eliminar alumno
 function eliminar_alum(id) { // el parametro "id" es lo que nos trae el id del usuario
-   $.ajax({
-        url: "ac",
-        data: {op:'eliminar',id_alum:id},
-        success: function (data, textStatus, jqXHR) {
-            location.reload();
-        }
-        
-   });
+    var del = confirm("Deseas eliminar este Registro ?");
+    if (del) {
+        $.ajax({
+            url: "ac",
+            data: {op: 'eliminar', id_alum: id},
+            success: function (data, textStatus, jqXHR) {
+                location.reload();
+            }
+
+        });
+    }
+
 }

@@ -1,6 +1,6 @@
 <!-- Dropdown alumno -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a class="modal-trigger" href="#modal1">Crear</a></li>
+    <li><a class="modal-trigger" href="hc?op=5&#modal1">Crear</a></li>
   <li><a href="hc?op=5">Listar</a></li>
   <li class="divider"></li>
   <li><a href="#!">mas...</a></li>
@@ -27,8 +27,8 @@
   <li><a href="#!">mas...</a></li>
 </ul>
 <nav>
-  <div class="nav-wrapper color_amethyst">
-      <a href="#!" class="brand-logo"><i class="large material-icons" style="font-size: 60px;">dashboard</i> Syscad</a>
+  <div class="nav-wrapper purple accent-2 ">
+      <a href="#!" class="brand-logo"><i class="large material-icons" style="font-size: 60px;">blur_on</i> Syscad</a>
     <ul class="right hide-on-med-and-down">
       <!-- Dropdown Alumno -->
       <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Alumno<i class="material-icons right">arrow_drop_down</i></a></li>

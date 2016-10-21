@@ -6,8 +6,12 @@
 package com.cad.test;
 
 import com.cad.dao.AlumnoDAO;
+import com.cad.dao.CursoDAO;
+import com.cad.dao.DetalleCursoDAO;
 import com.cad.dao.DocenteDAO;
 import com.cad.model.Alumno;
+import com.cad.model.Curso;
+import com.cad.model.DetalleCurso;
 import com.cad.model.Docente;
 import com.cad.util.Conexion;
 import java.util.ArrayList;
@@ -19,13 +23,15 @@ import java.util.List;
  */
 public class Test01 {
     private static AlumnoDAO aO = new AlumnoDAO();
+    private static CursoDAO ac = new CursoDAO();
+    private static DetalleCursoDAO acc = new DetalleCursoDAO();
   // private static DocenteDAO aO = new DocenteDAO();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        crear();
+        listar_dc();
     }
     public static void conex(){
         if(Conexion.getConexion()!=null){
@@ -80,6 +86,13 @@ public class Test01 {
         System.out.println(lista.get(i).getNombre());
     }
     }
+    public static void listar_dc(){
+    List<DetalleCurso> lista = new ArrayList<>();
+    lista = acc.listar();
+    for(int i=0;i<lista.size();i++){
+        System.out.println(lista.get(i).getNombre());
+    }
+    }
         public static void crear(){
         Alumno d = new Alumno();
         d.setApellido("apellido");
@@ -87,6 +100,18 @@ public class Test01 {
         d.setTelefono("telfno");
         d.setCorreo("jjhjhjedu");
         if(aO.create(d)>0){
+            System.out.println("si");
+        }else{
+            System.out.println("no");
+        }
+    }
+        
+            public static void update(){
+                Curso c = new Curso();
+                      c.setId_curso(5);
+                      c.setId_docente(6);
+                      c.setNombre_curso("lololool");
+         if(ac.update(c)>0){
             System.out.println("si");
         }else{
             System.out.println("no");

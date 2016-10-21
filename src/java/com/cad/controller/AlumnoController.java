@@ -7,21 +7,12 @@ package com.cad.controller;
 
 import com.cad.dao.AlumnoDAO;
 import com.cad.model.Alumno;
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
-import java.awt.Event;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import jdk.nashorn.internal.ir.debug.JSONWriter;
-import org.apache.catalina.tribes.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,7 +39,7 @@ public class AlumnoController extends HttpServlet {
         String op = request.getParameter("op");
         String id_alum = request.getParameter("id_alum");
         PrintWriter out = response.getWriter();
-        
+
         if (op.equals("edit")) {
             try {
                 Alumno al = alumDAO.buscar(Integer.parseInt(id_alum)); // llamamos al DAO
@@ -66,30 +57,30 @@ public class AlumnoController extends HttpServlet {
             }
 
         }
-        if(op.equals("crear")){
-                    Alumno al = new Alumno();
-                    al.setNombre(request.getParameter("nombre"));
-                    al.setApellido(request.getParameter("apellido"));
-                    al.setCiclo(request.getParameter("ciclo"));
-                    al.setTelefono(request.getParameter("telefono"));
-                    al.setCorreo(request.getParameter("correo"));
-                    alumDAO.create(al);
-                    response.sendRedirect("hc?op=5");
-        }
-        if(op.equals("modificar")){
+        if (op.equals("crear")) {
             Alumno al = new Alumno();
-                    al.setNombre(request.getParameter("nombre"));
-                    al.setApellido(request.getParameter("apellido"));
-                    al.setCiclo(request.getParameter("ciclo"));
-                    al.setTelefono(request.getParameter("telefono"));
-                    al.setCorreo(request.getParameter("correo"));
-                    al.setId_alumno(Integer.parseInt(request.getParameter("id_alum")));
-                    alumDAO.update(al);
-                    response.sendRedirect("hc?op=5");
+            al.setNombre(request.getParameter("nombre"));
+            al.setApellido(request.getParameter("apellido"));
+            al.setCiclo(request.getParameter("ciclo"));
+            al.setTelefono(request.getParameter("telefono"));
+            al.setCorreo(request.getParameter("correo"));
+            alumDAO.create(al);
+            response.sendRedirect("hc?op=5");
         }
-        if(op.equals("eliminar")){
-                    alumDAO.delete(Integer.parseInt(id_alum));
-                    response.sendRedirect("hc?op=5");
+        if (op.equals("modificar")) {
+            Alumno al = new Alumno();
+            al.setNombre(request.getParameter("nombre"));
+            al.setApellido(request.getParameter("apellido"));
+            al.setCiclo(request.getParameter("ciclo"));
+            al.setTelefono(request.getParameter("telefono"));
+            al.setCorreo(request.getParameter("correo"));
+            al.setId_alumno(Integer.parseInt(request.getParameter("id_alum")));
+            alumDAO.update(al);
+            response.sendRedirect("hc?op=5");
+        }
+        if (op.equals("eliminar")) {
+            alumDAO.delete(Integer.parseInt(id_alum));
+            response.sendRedirect("hc?op=5");
         }
     }
 

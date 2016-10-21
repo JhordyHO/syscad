@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../../WEB-INF/jspf/head.jspf" %>
+        <script src="js/alumno/alumno.js" type="text/javascript"></script>
         <title>Alumno</title>
     </head>
     <body>
@@ -19,7 +20,7 @@
             <h4 class="header"><i class="material-icons medium">perm_identity</i> Listar de Alumnos </h4>
             <div class="row">
                 <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light" style="height: 200px;">
+                    <div class="card-image waves-effect waves-block waves-light" style="height: 350px;">
                         <img class="activator" src="img/fondo1.jpg" alt=""/>
                     </div>
                     <div class="card-content">

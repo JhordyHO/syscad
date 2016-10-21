@@ -6,6 +6,8 @@
 package com.cad.controller;
 
 import com.cad.dao.AlumnoDAO;
+import com.cad.dao.CursoDAO;
+import com.cad.dao.DetalleCursoDAO;
 import com.cad.dao.DocenteDAO;
 import com.cad.model.Docente;
 import java.io.IOException;
@@ -23,9 +25,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author UPEU
  */
 public class HomeController extends HttpServlet {
-private DocenteDAO aO = new DocenteDAO();
-private List<Docente> lista = new ArrayList<>();
-private AlumnoDAO alumDAO = new AlumnoDAO();
+
+    private DocenteDAO aO = new DocenteDAO();
+    private List<Docente> lista = new ArrayList<>();
+    private AlumnoDAO alumDAO = new AlumnoDAO();
+    private CursoDAO curDAO = new CursoDAO();
+    private DetalleCursoDAO dcurDAO = new DetalleCursoDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,7 +49,7 @@ private AlumnoDAO alumDAO = new AlumnoDAO();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeController</title>");            
+            out.println("<title>Servlet HomeController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet HomeController at " + request.getContextPath() + "</h1>");
@@ -65,47 +70,52 @@ private AlumnoDAO alumDAO = new AlumnoDAO();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd;String x = "";
+        RequestDispatcher rd;
+        String x = "";
         int op = Integer.parseInt(request.getParameter("op"));
-        switch(op){
-            case 1: x = "/index.jsp";
-                    rd = request.getRequestDispatcher(x);
-                    rd.include(request, response);
-                    break;
-            case 2: x = "vista/docente/crear.jsp";
-                    rd = request.getRequestDispatcher(x);
-                    rd.include(request, response);
-                    break;
-            case 3: x = "vista/docente/lista.jsp";
-                    request.setAttribute("lista", aO.listar());
-                    rd = request.getRequestDispatcher(x);
-                    rd.include(request, response);
-                    break;
+        switch (op) {
+            case 1:
+                x = "/index.jsp";
+                rd = request.getRequestDispatcher(x);
+                rd.include(request, response);
+                break;
+            case 2:
+                x = "vista/docente/crear.jsp";
+                rd = request.getRequestDispatcher(x);
+                rd.include(request, response);
+                break;
+            case 3:
+                x = "vista/docente/lista.jsp";
+                request.setAttribute("lista", aO.listar());
+                rd = request.getRequestDispatcher(x);
+                rd.include(request, response);
+                break;
             case 4:
-                    x = "vista/docente/editar.jsp";
-                    rd = request.getRequestDispatcher(x);
-                    rd.include(request, response);
-                    break;
+                x = "vista/docente/editar.jsp";
+                rd = request.getRequestDispatcher(x);
+                rd.include(request, response);
+                break;
             case 5:
-                    x = "vista/alumno/index.jsp";
-                    request.setAttribute("lista", alumDAO.listar());
-                    rd = request.getRequestDispatcher(x);
-                    rd.include(request, response);
-                    break;
+                x = "vista/alumno/index.jsp";
+                request.setAttribute("lista", alumDAO.listar());
+                rd = request.getRequestDispatcher(x);
+                rd.include(request, response);
+                break;
             case 6:
-                    x = "vista/curso/index.jsp";
-                    rd = request.getRequestDispatcher(x);
-                    rd.include(request, response);
-                    break;
+                x = "vista/curso/index.jsp";
+                rd = request.getRequestDispatcher(x);
+                request.setAttribute("lista", curDAO.listar());
+                rd.include(request, response);
+                break;
             case 7:
-                    x = "vista/detallecurso/index.jsp";
-                    rd = request.getRequestDispatcher(x);
-                    rd.include(request, response);
-                    break;
-        
+                x = "vista/detallecurso/index.jsp";
+                request.setAttribute("lista", dcurDAO.listar());
+                rd = request.getRequestDispatcher(x);
+                rd.include(request, response);
+                break;
+
         }
-        
-       
+
     }
 
     /**
