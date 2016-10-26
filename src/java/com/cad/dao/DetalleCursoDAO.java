@@ -24,7 +24,7 @@ public class DetalleCursoDAO implements Operaciones<DetalleCurso> {
     private ResultSet rs;
     private Connection cx;
     private final String SQL_LISTAR = "select * from detalle_curso d , alumno a,curso c where d.idAlumno = a.idAlumno and  d.idCurso = c.idCurso";
-    private final String SQL_GUARDAR = "";
+    private final String SQL_GUARDAR = "INSERT INTO detalle_curso (idAlumno, idCurso, nota1, nota2, promedio) VALUES (?,?,?,?,?)";
     private final String SQL_UPDATE = "";
     private final String SQL_ELIMINAR = "";
 
@@ -37,8 +37,8 @@ public class DetalleCursoDAO implements Operaciones<DetalleCurso> {
             ps.setInt(1, p.getId_alumno());
             ps.setInt(2, p.getId_curso());
             ps.setFloat(3, p.getNota1());
-            ps.setFloat(3, p.getNota2());
-            ps.setFloat(3, p.getPromedio());
+            ps.setFloat(4, p.getNota2());
+            ps.setFloat(5, p.getPromedio());
             op = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error: "+e);

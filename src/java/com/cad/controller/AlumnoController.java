@@ -82,6 +82,15 @@ public class AlumnoController extends HttpServlet {
             alumDAO.delete(Integer.parseInt(id_alum));
             response.sendRedirect("hc?op=5");
         }
+        if(op.equals("list_json")){
+            try {
+                JSONObject obj = new JSONObject();
+                obj.put("alumnos",alumDAO.listar());
+                out.print(obj);
+            } catch (JSONException ex) {
+               
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

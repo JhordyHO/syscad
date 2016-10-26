@@ -79,6 +79,15 @@ public class CursoController extends HttpServlet {
             curDAO.delete(Integer.parseInt(id_cur));
             response.sendRedirect("hc?op=6");
         }
+        if(op.equals("list_json")){
+            try {
+                JSONObject obj = new JSONObject();
+                obj.put("curso",curDAO.listar());
+                out.print(obj);
+            } catch (JSONException ex) {
+               
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

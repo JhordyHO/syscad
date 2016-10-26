@@ -31,7 +31,8 @@ public class Test01 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        listar_dc();
+       // listar_dc();
+        crear();
     }
     public static void conex(){
         if(Conexion.getConexion()!=null){
@@ -94,12 +95,15 @@ public class Test01 {
     }
     }
         public static void crear(){
-        Alumno d = new Alumno();
-        d.setApellido("apellido");
-        d.setNombre("nombre");
-        d.setTelefono("telfno");
-        d.setCorreo("jjhjhjedu");
-        if(aO.create(d)>0){
+        DetalleCurso dc = new DetalleCurso();
+            dc.setId_curso(Integer.parseInt("2"));
+            dc.setId_alumno(Integer.parseInt("22"));
+            float n1 = Float.parseFloat("20"); 
+            dc.setNota1(n1);
+            float n2 = Float.parseFloat("20");        
+            dc.setNota1(n2);
+            dc.setPromedio(n1+n2/2);
+        if(acc.create(dc)>0){
             System.out.println("si");
         }else{
             System.out.println("no");

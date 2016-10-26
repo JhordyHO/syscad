@@ -5,6 +5,8 @@
  */
 package com.cad.controller;
 
+import com.cad.dao.DetalleCursoDAO;
+import com.cad.model.DetalleCurso;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Jhordy
  */
 public class DetallecursoController extends HttpServlet {
-
+      DetalleCursoDAO dcurDAO = new DetalleCursoDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,18 +32,21 @@ public class DetallecursoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DetallecursoController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DetallecursoController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        PrintWriter out = response.getWriter();
+        String op = request.getParameter("op");
+        if(op.equals("crear")){
+            DetalleCurso dc = new DetalleCurso();
+            dc.setId_curso(Integer.parseInt(request.getParameter("id_c")));
+            dc.setId_alumno(Integer.parseInt(request.getParameter("id_a")));
+            float n1 = Float.parseFloat(request.getParameter("nota1")); 
+            dc.setNota1(n1);
+            float n2 = Float.parseFloat(request.getParameter("nota2"));        
+            dc.setNota2(n2);
+            dc.setPromedio((n1+n2)/2);
+            dcurDAO.create(dc);
+            response.sendRedirect("hc?op=7");
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

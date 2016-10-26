@@ -30,7 +30,7 @@
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Lista de Cursos<i class="material-icons right">close</i></span>
                         <div >
-                            <a  class="btn-floating btn-large waves-effect waves-light color_emerald modal-trigger" href="#modalcrear"><i class="material-icons">add</i></a>
+                            <a  id="crear_n" class="btn-floating btn-large waves-effect waves-light color_emerald modal-trigger" href="#modalcrear"><i class="material-icons">add</i></a>
                             <table class="table" >                
                                 <thead>
                                     <tr>
@@ -67,11 +67,11 @@
                 <div class="modal-content" >
                     <h6 class="header"><i class="material-icons small">date_range</i> detalles curso</h6>
                     <div class="row">
-                        <form id="form-registrar" method="POST" action="cc?op=crear">
+                        <form id="form-registrar" method="POST" action="dcc?op=crear">
                             <div class="row">
                                 <div class="input-field col s6">
                                     <i class="material-icons prefix">perm_identity</i>
-                                    <select name="id_d" id="docent_select">
+                                    <select name="id_c" id="select_curso">
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
                                         <option value="3">Option 3</option>
@@ -80,19 +80,19 @@
                                 </div>
                                 <div class="input-field col s3">
                                     <i class="material-icons prefix">perm_identity</i>
-                                    <input id="nombre_cur" name="nombre_c" type="text" class="validate">
-                                    <label for="nombre_c">Nota 1</label>
+                                    <input id="nota1" name="nota1" type="text" class="validate">
+                                    <label for="nota1">Nota 1</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <input id="nombre_cur" name="nombre_c" type="text" class="validate">
-                                    <label for="nombre_c">Nota 1</label>
+                                    <input id="nota2" name="nota2" type="text" class="validate">
+                                    <label for="nota2">Nota 1</label>
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">perm_identity</i>
-                                    <select name="id_d" id="docent_select">
+                                    <select name="id_a" id="select_alumno">
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
                                         <option value="3">Option 3</option>
@@ -115,7 +115,7 @@
                             <div class="row">
                                 <div class="input-field col s6">
                                     <i class="material-icons prefix">perm_identity</i>
-                                    <select name="id_d" id="docent_select">
+                                    <select name="id_2" id="docent_select">
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
                                         <option value="3">Option 3</option>
@@ -136,7 +136,7 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">perm_identity</i>
-                                    <select name="id_d" id="docent_select">
+                                    <select name="id_d_2" id="docent_select">
                                         <option value="1">Option 1</option>
                                         <option value="2">Option 2</option>
                                         <option value="3">Option 3</option>
